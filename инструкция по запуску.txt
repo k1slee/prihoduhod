@@ -1,0 +1,2 @@
+docker build -t time-calendar .  #Сборка образа
+docker run -d -p 8003:5000 --name time-calendar-app time-calendar  #Запуск
