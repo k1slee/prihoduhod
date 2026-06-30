@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" id="file-input" name="file" accept=".xlsx,.xls" required>
+        <button type="submit">Загрузить</button>
+    </form>
+
+    <div id="result">
+        <!-- Сюда будет вставлен результат (календарь или ошибка) -->
+        <p>Выберите Excel-файл и нажмите «Загрузить».</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

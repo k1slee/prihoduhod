@@ -1,0 +1,46 @@
+# Виртуальные окружения
+venv/
+env/
+.venv/
+.env/
+
+# Python кэш и компиляция
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Журналы и временные файлы
+*.log
+*.tmp
+*.pid
+*.swp
+*.swo
+
+# Данные загруженные (если бы сохранялись, но у нас в памяти)
+uploads/
+*.xlsx
+*.xls
+
+# Настройки IDE
+.vscode/
+.idea/
+*.iml
+*.orig
+
+# Файлы окружения
+.env
+.env.local
+
+# Отчёты тестов
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Docker
+.dockerignore

@@ -1,0 +1,43 @@
+<!-- templates/calendar.html -->
+<div id="calendar-result">
+    <h3>{{ employee_name }} ({{ period_start }} – {{ period_end }})</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Неделя</th>
+                <th>Пн</th>
+                <th>Вт</th>
+                <th>Ср</th>
+                <th>Чт</th>
+                <th>Пт</th>
+                <th>Сб</th>
+                <th>Вс</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for week in weeks %}
+            <tr>
+                <td class="week-range">
+                    {{ week[0].date.strftime('%d.%m') }}–{{ week[-1].date.strftime('%d.%m') }}
+                </td>
+                {% for day in week %}
+                <td>
+                    <!-- Дата (число и месяц) мелким шрифтом сверху -->
+                    <div class="day-date">{{ day.date.strftime('%d.%m') }}</div>
+                    <!-- Время -->
+                    <div class="day-time">
+                        {% if day.time and (day.time[0] or day.time[1]) %}
+                            {{ day.time[0] if day.time[0] else '****' }} -
+                            {{ day.time[1] if day.time[1] else '****' }}
+                        {% else %}
+                            —
+                        {% endif %}
+                    </div>
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button class="no-print" onclick="window.print()">Распечатать</button>
+</div>

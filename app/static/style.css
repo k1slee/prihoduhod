@@ -1,0 +1,145 @@
+/* static/style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f9f9f9;
+}
+
+h1 {
+    color: #333;
+}
+
+#upload-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+#upload-form input[type="file"] {
+    margin-right: 10px;
+}
+
+#upload-form button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#upload-form button:hover {
+    background: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+}
+
+/* Стили для календарной таблицы */
+#calendar-result {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+#calendar-result table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+}
+
+#calendar-result th,
+#calendar-result td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    min-width: 80px;
+}
+
+#calendar-result th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+#calendar-result tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+#calendar-result .week-range {
+    font-weight: bold;
+    background-color: #e9ecef;
+}
+
+button.no-print {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.no-print:hover {
+    background: #218838;
+}
+
+.error {
+    color: #d9534f;
+    background: #f2dede;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #ebccd1;
+}
+/* Стили для отображения даты в ячейке */
+#calendar-result td .day-date {
+    font-size: 0.7em;
+    color: #888;
+    margin-bottom: 2px;
+}
+
+#calendar-result td .day-time {
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
+/* Для печати */
+@media print {
+    #calendar-result td .day-date {
+        font-size: 0.6em;
+        color: #555;
+    }
+    #calendar-result td .day-time {
+        font-size: 0.8em;
+    }
+}
+/* Стили для печати */
+@media print {
+    body {
+        background: #fff;
+        margin: 0;
+    }
+    #upload-form,
+    .no-print {
+        display: none !important;
+    }
+    #calendar-result {
+        box-shadow: none;
+        padding: 0;
+        border-radius: 0;
+    }
+    #calendar-result table {
+        border-collapse: collapse;
+        font-size: 12px;
+    }
+    #calendar-result th,
+    #calendar-result td {
+        border: 1px solid #000;
+        padding: 4px;
+    }
+}
