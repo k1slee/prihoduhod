@@ -1,15 +1,31 @@
 /* static/style.css */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
-    margin: 20px;
     background: #f9f9f9;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 h1 {
-    color: #333;
+    text-align: center;
+    margin-top: 0;
 }
 
 #upload-form {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
     background: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -18,14 +34,22 @@ h1 {
 }
 
 #upload-form input[type="file"] {
-    margin-right: 10px;
+    display: block;
+    margin: 10px auto;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 80%;
+    box-sizing: border-box;
 }
 
 #upload-form button {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 1em;
     background: #007bff;
     color: #fff;
     border: none;
-    padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -35,16 +59,21 @@ h1 {
 }
 
 #result {
-    margin-top: 20px;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Стили для календарной таблицы */
+/* Блок с календарём */
 #calendar-result {
+    width: 100%;
+    overflow-x: auto;
     background: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    overflow-x: auto;
 }
 
 #calendar-result table {
@@ -75,6 +104,18 @@ h1 {
     background-color: #e9ecef;
 }
 
+/* Стили для отображения даты в ячейке */
+#calendar-result td .day-date {
+    font-size: 0.7em;
+    color: #888;
+    margin-bottom: 2px;
+}
+
+#calendar-result td .day-time {
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
 button.no-print {
     margin-top: 10px;
     padding: 8px 16px;
@@ -95,62 +136,16 @@ button.no-print:hover {
     padding: 15px;
     border-radius: 4px;
     border: 1px solid #ebccd1;
-}
-/* Стили для отображения даты в ячейке */
-#calendar-result td .day-date {
-    font-size: 0.7em;
-    color: #888;
-    margin-bottom: 2px;
-}
-
-#calendar-result td .day-time {
-    font-size: 0.9em;
-    font-weight: normal;
-}
-/* Центрирование всей страницы */
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* Ограничение ширины формы и центрирование содержимого */
-#upload-form {
-    max-width: 600px;
-    width: 100%;
     text-align: center;
 }
 
-/* Контейнер результата тоже ограничим по ширине */
-#result {
-    width: 100%;
-    max-width: 1200px;
-}
-
-/* Заголовок по центру */
-h1 {
-    text-align: center;
-}
-/* Для печати */
-@media print {
-    #calendar-result td .day-date {
-        font-size: 0.6em;
-        color: #555;
-    }
-    #calendar-result td .day-time {
-        font-size: 0.8em;
-    }
-}
 /* Стили для печати */
 @media print {
     body {
         background: #fff;
         margin: 0;
+        padding: 0;
+        justify-content: flex-start; /* отключаем центрирование при печати */
     }
     #upload-form,
     .no-print {
@@ -169,5 +164,12 @@ h1 {
     #calendar-result td {
         border: 1px solid #000;
         padding: 4px;
+    }
+    #calendar-result td .day-date {
+        font-size: 0.6em;
+        color: #555;
+    }
+    #calendar-result td .day-time {
+        font-size: 0.8em;
     }
 }
