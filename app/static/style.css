@@ -107,7 +107,35 @@ button.no-print:hover {
     font-size: 0.9em;
     font-weight: normal;
 }
+/* Центрирование всей страницы */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
+/* Ограничение ширины формы и центрирование содержимого */
+#upload-form {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Контейнер результата тоже ограничим по ширине */
+#result {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Заголовок по центру */
+h1 {
+    text-align: center;
+}
 /* Для печати */
 @media print {
     #calendar-result td .day-date {
